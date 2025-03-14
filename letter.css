@@ -1,0 +1,84 @@
+/* Shared Styles */
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(to right, #8fd7fe, #8fc7eb);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #a7dcfc;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.letter-container {
+    max-width: 400px;
+    width: 90%;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 1.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.letter-container::after, .letter-container::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #87CEEB, #FFFFFF, #B19CD9, #FFB6C1, #98FB98);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+.letter-container::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.letter-container:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    .letter-container {
+        width: 85%;
+        padding: 1.2em;
+        margin: 20px auto;
+    }
+}

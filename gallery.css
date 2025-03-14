@@ -1,0 +1,296 @@
+/* Gallery-specific styles */
+/* Background Flowers */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+/* Background Flowers */
+body {
+    position: relative;
+    padding: 40px 0;
+    min-height: 100vh;
+    background-color: var(--dark-color);
+}
+
+/* Keep existing flower background styles */
+.flower-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Keep existing flower background styles */
+.flower-bg span {
+    position: absolute;
+    font-size: 24px;
+    animation: floatFlower 15s linear infinite;
+    opacity: 0.4;
+}
+
+/* Keep flower animations */
+
+
+/* Keep flower span styles */
+.flower-bg span:nth-child(1) { left: 5%; animation-delay: 0s; content: '✿'; color: #87CEEB; }
+.flower-bg span:nth-child(2) { left: 15%; animation-delay: 2s; content: '❀'; color: #B19CD9; }
+.flower-bg span:nth-child(3) { left: 25%; animation-delay: 4s; content: '✾'; color: #FFB6C1; }
+.flower-bg span:nth-child(4) { left: 35%; animation-delay: 6s; content: '❁'; color: #98FB98; }
+.flower-bg span:nth-child(5) { left: 45%; animation-delay: 8s; content: '✿'; color: #87CEEB; }
+.flower-bg span:nth-child(6) { left: 55%; animation-delay: 10s; content: '❀'; color: #B19CD9; }
+.flower-bg span:nth-child(7) { left: 65%; animation-delay: 12s; content: '✾'; color: #FFB6C1; }
+.flower-bg span:nth-child(8) { left: 75%; animation-delay: 14s; content: '❁'; color: #98FB98; }
+.flower-bg span:nth-child(9) { left: 85%; animation-delay: 16s; content: '✿'; color: #87CEEB; }
+.flower-bg span:nth-child(10) { left: 95%; animation-delay: 18s; content: '❀'; color: #B19CD9; }
+
+
+/* Keep animations */
+@keyframes floatFlower {
+    0% { top: 100%; transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% { top: -10%; transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Keep existing flower background styles */
+
+
+/* Gallery Grid Layout */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap */
+    gap: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Letter Container Styles */
+
+
+/* Keep existing flower background styles */
+.gallery-grid .letter-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    position: relative;
+    margin: 20;
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 20px); /* Adjust width for two cards per row */
+    border-radius: 10px;
+}
+
+
+.gallery-grid .image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    height: auto; /* Remove fixed height to allow natural image height */
+
+    margin-bottom: 20px;
+    background-color: transparent; /* Change to transparent to remove white color outside photo */
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Keep existing flower background styles */
+
+
+
+.gallery-grid .letter-container img {
+    max-width: 100%;
+    height: auto; /* Ensure the image maintains its aspect ratio */
+}
+
+/* Keep existing flower background styles */
+
+
+
+.gallery-grid .letter-container img {
+    max-width: 100%;
+    width: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+/* Keep existing flower background styles */
+
+
+.gallery-grid .letter-container p {
+    font-family: 'gilroy', sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+/* Keep existing flower background styles */
+
+
+/* Button container */
+.letter-container:last-child {
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* Keep existing flower background styles */
+
+
+/* Gradient border animation */
+.letter-container::after, .letter-container::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #87CEEB, #FFFFFF, #B19CD9, #FFB6C1, #98FB98);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+/* Keep existing flower background styles */
+
+
+.letter-container::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+/* Keep existing flower background styles */
+
+
+@keyframes spin {
+    from { --angle: 0deg; }
+    to { --angle: 360deg; }
+}
+
+/* Keep existing flower background styles */
+
+
+.letter-container img:hover {
+    transform: scale(1.02);
+}
+
+/* Keep existing flower background styles */
+
+
+/* Button Styles */
+.button {
+    background-color: #ffffff;
+    color: rgb(19, 19, 19);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+/* Keep existing flower background styles */
+
+
+.button:hover {
+    background-color: #357abd;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Keep existing flower background styles */
+
+
+/* Header Styles */
+header {
+    position: relative;
+    overflow: hidden;
+    padding: 30px !important;
+    background: rgba(40, 40, 40, 0.9);
+    margin-bottom: 40px;
+    text-align: center;
+    color: white;
+    border-bottom: 5px solid #a7dcfc;
+}
+
+/* Keep existing flower background styles */
+
+
+header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    margin: 0;
+}
+
+/* Keep existing flower background styles */
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-grid {
+        gap: 30px;
+        padding: 0 15px;
+    }
+
+/* Keep existing flower background styles */
+
+
+    .gallery-grid .letter-container {
+        width: calc(100% - 20px); /* Full width on smaller screens */
+        padding: 20px;
+    }
+
+/* Keep existing flower background styles */
+
+
+    .gallery-grid .letter-container img {
+        max-height: 300px;
+    }
+
+/* Keep existing flower background styles */
+
+
+    header h1 {
+        font-size: 28px;
+    }
+
+/* Keep existing flower background styles */
+
+}
+
+@media (max-width: 480px) {
+    .gallery-grid .letter-container {
+        padding: 15px;
+    }
+
+/* Keep existing flower background styles */
+
+
+    .gallery-grid .letter-container img {
+        max-height: 250px;
+    }
+
+/* Keep existing flower background styles */
+
+
+    .gallery-grid .letter-container p {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+/* Keep existing flower background styles */
+
+}
